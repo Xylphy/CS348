@@ -1,10 +1,34 @@
-# Ignore Gradle project-specific cache directory
-.gradle
+# Gradle
+.gradle/
+build/
+gradle/
 
-# Ignore Gradle build output directory
-build
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
 
-# Ignore Kotlin plugin data
-.kotlin
+# Kotlin
+.kotlin/
 
-*.code-workspace
+# Java
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Build artifacts
+out/
+dist/
+target/
+
+# Local properties
+local.properties
+gradle.properties

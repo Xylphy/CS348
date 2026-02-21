@@ -12,11 +12,13 @@ class Car implements Runnable {
 		this.carNumber = carNumber;
 	}
 
+	@Override
 	public void run() {
 		System.out.printf("Car #%d has arrived.\n", carNumber);
+
 		try {
 			parkingSlots.acquire();
-			System.out.println("Car #" + carNumber + " parked.");
+			System.out.println("Car #" + carNumber + " has parked.");
 			Thread.sleep(2000);
 			System.out.println("Car #" + carNumber + " is leaving.");
 			parkingSlots.release();
@@ -31,17 +33,17 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.print("Enter the number of parking slots: ");
-		int numberOfSlots = scanner.nextInt();
+		int totalParkingSlots = scanner.nextInt();
 
 		System.out.print("Enter the number of cars: ");
-		int numberOfCars = scanner.nextInt();
+		int totalCars = scanner.nextInt();
 
-		Semaphore parkingSlots = new Semaphore(numberOfSlots);
-		Thread[] carThreads = new Thread[numberOfCars];
+		Semaphore parkingSlots = new Semaphore(totalParkingSlots);
+		Thread[] carThreads = new Thread[totalCars];
 
-		for (int i = 0; i < numberOfCars; i++) {
-			carThreads[i] = new Thread(new Car(parkingSlots, i));
-			carThreads[i].start();
+		for (int i = 1; i <= totalCars; i++) {
+			carThreads[i - 1] = new Thread(new Car(parkingSlots, i));
+			carThreads[i - 1].start();
 		}
 
 		for (Thread carThread : carThreads) {
@@ -53,7 +55,6 @@ public class Main {
 		}
 
 		System.out.println("Simulation Ended.");
-
 		scanner.close();
 	}
 }

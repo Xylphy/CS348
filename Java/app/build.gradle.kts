@@ -12,9 +12,9 @@ dependencies {
     implementation("org.apache.commons:commons-text")
 }
 
-// gradlew ParkingGarageSimulation --args="arg1 arg2 arg3"
-tasks.register<JavaExec>("ParkingGarageSimulation"){
-    mainClass = "ParkingGarageSimulation.Main"
+
+tasks.register<JavaExec>("ParkingGarageSimulation") {
+    mainClass.set("ParkingGarageSimulation.Main")
     classpath = sourceSets["main"].runtimeClasspath
     standardInput = System.`in`
 }
