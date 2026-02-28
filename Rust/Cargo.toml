@@ -1,0 +1,29 @@
+[package]
+name = "Rust"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+lto = true
+codegen-units = 1
+
+[lints.clippy]
+all = "deny"
+pedantic = "deny"
+nursery = "deny"
+correctness = "deny"
+suspicious = "deny"
+complexity = "deny"
+perf = "deny"
+style = "deny"
+
+
+[lints.rust]
+"unsafe" = "deny"
+
+[dependencies]
+
+
+[[bin]]
+name = "one_way_communication"
+path = "src/bin/one_way_communication.rs"
