@@ -1,19 +1,8 @@
+use rust::read_input;
 use std::{
-    io::{self, Write},
     sync::{Arc, Condvar, Mutex, MutexGuard},
     thread,
 };
-
-fn read_input<T: std::str::FromStr>(prompt: &str) -> T
-where
-    T::Err: std::fmt::Debug,
-{
-    print!("{prompt}");
-    io::stdout().flush().unwrap();
-    let mut input: String = String::new();
-    io::stdin().read_line(&mut input).unwrap();
-    input.trim().parse().unwrap()
-}
 
 struct SharedState {
     buffer: Vec<char>,

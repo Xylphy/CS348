@@ -1,16 +1,4 @@
-use std::io::{self, Write};
-fn read_input<T: std::str::FromStr>(prompt: &str) -> T
-where
-    <T as std::str::FromStr>::Err: std::fmt::Debug,
-{
-    print!("{prompt}");
-    io::stdout().flush().unwrap();
-    let mut input: String = String::new();
-    std::io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
-    input.trim().parse::<T>().expect("Failed to parse input")
-}
+use rust::read_input;
 
 #[derive(Clone, Copy)]
 struct Process {
