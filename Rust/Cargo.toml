@@ -27,3 +27,12 @@ style = "deny"
 [[bin]]
 name = "one_way_communication"
 path = "src/bin/one_way_communication.rs"
+
+[[bin]]
+name = "exponential_averaging"
+path = "src/bin/exponential_averaging.rs"
+
+[[bin]]
+name = "preemptive_sjf"
+path = "src/bin/preemptive_sjf.rs"
+
